@@ -18,7 +18,7 @@ public class Level{
         if (index >= 0 && index < levels.length - 1) {
             return levels[index + 1];
         }
-        return null; // Already at highest level
+        return null; 
     }
 
     public static double getIncrement(String nextLevel) {
