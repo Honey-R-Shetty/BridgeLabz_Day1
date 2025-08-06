@@ -16,7 +16,7 @@ public class Main {
 			System.out.println("5. Exit");
 			System.out.print("Enter choice: ");
 			int ch = sc.nextInt();
-			sc.nextLine(); // clear buffer
+			sc.nextLine(); 
 
 			switch (ch) {
 			case 1:

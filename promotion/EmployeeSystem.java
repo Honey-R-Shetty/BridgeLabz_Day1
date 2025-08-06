@@ -1,81 +1,28 @@
 package promotion;
 
-import java.util.Scanner;
-
 public class EmployeeSystem {
-    private Employee[] employees = new Employee[5];
-    private int count = 0;
-
-    public void addEmployee(int id, String name, Level level, double salary) {
-        if (count < 5) {
-            employees[count++] = new Employee(id, name, level, salary);
-            System.out.println("Employee added successfully.\n");
-        } else {
-            System.out.println("Cannot add more employees. Limit reached.\n");
-        }
-    }
-
-    public void promoteEmployee(int id) {
-        for (int i = 0; i < count; i++) {
-            if (employees[i].getId() == id) {
-                employees[i].promote();
-                return;
-            }
-        }
-        System.out.println("Employee not found.\n");
-    }
-
-    public void showAllEmployees() {
-        for (int i = 0; i < count; i++) {
-            employees[i].display();
-        }
-    }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        EmployeeSystem system = new EmployeeSystem();
+        Employee[] employees = new Employee[5];
 
-        while (true) {
-            System.out.println("\n--- EMPLOYEE PROMOTION SYSTEM ---");
-            System.out.println("1. Add Employee");
-            System.out.println("2. Promote Employee");
-            System.out.println("3. Show All Employees");
-            System.out.println("4. Exit");
-            System.out.print("Enter your choice: ");
-            int ch = sc.nextInt();
+        employees[0] = new Employee(101, "Alice", "Junior", 30000);
+        employees[1] = new Employee(102, "Bob", "Mid", 40000);
+        employees[2] = new Employee(103, "Charlie", "Senior", 50000);
+        employees[3] = new Employee(104, "Daisy", "Lead", 60000);
+        employees[4] = new Employee(105, "Eve", "Junior", 30000);
 
-            switch (ch) {
-                case 1:
-                    System.out.print("Enter ID: ");
-                    int id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.print("Enter Name: ");
-                    String name = sc.nextLine();
-                    System.out.print("Enter Level (JUNIOR/MID/SENIOR/LEAD): ");
-                    String levelStr = sc.next().toUpperCase();
-                    Level level = Level.valueOf(levelStr);
-                    System.out.print("Enter Salary: ");
-                    double sal = sc.nextDouble();
-                    system.addEmployee(id, name, level, sal);
-                    break;
+        System.out.println("---- Employee Details Before Promotion ----");
+        for (Employee e : employees) {
+            e.display();
+        }
 
-                case 2:
-                    System.out.print("Enter Employee ID to promote: ");
-                    int pid = sc.nextInt();
-                    system.promoteEmployee(pid);
-                    break;
+        System.out.println("\n---- Promoting All Employees ----");
+        for (Employee e : employees) {
+            e.promote();
+        }
 
-                case 3:
-                    system.showAllEmployees();
-                    break;
-
-                case 4:
-                    System.out.println("Exiting...");
-                    return;
-
-                default:
-                    System.out.println("Invalid choice!");
-            }
+        System.out.println("\n---- Employee Details After Promotion ----");
+        for (Employee e : employees) {
+            e.display();
         }
     }
 }
-  

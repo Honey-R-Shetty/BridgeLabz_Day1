@@ -3,10 +3,10 @@ package promotion;
 public class Employee {
     private int id;
     private String name;
-    private Level level;
+    private String level;
     private double salary;
 
-    public Employee(int id, String name, Level level, double salary) {
+    public Employee(int id, String name, String level, double salary) {
         this.id = id;
         this.name = name;
         this.level = level;
@@ -18,13 +18,14 @@ public class Employee {
     }
 
     public void promote() {
-        Level next = level.getNextLevel();
+        String next = Level.getNextLevel(level);
         if (next != null) {
-            salary += next.getIncrement();
+            double increment = Level.getIncrement(next);
+            salary += increment;
             level = next;
             System.out.println(name + " promoted to " + level + " with new salary: " + salary);
         } else {
-            System.out.println(name + " is already at the highest level (LEAD).");
+            System.out.println(name + " is already at the highest level (" + level + ").");
         }
     }
 
