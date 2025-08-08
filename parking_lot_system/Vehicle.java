@@ -6,7 +6,6 @@ abstract class Vehicle {
 	String type;
 	
 	public Vehicle(int number, String owner, String type) {
-		super();
 		this.number = number;
 		this.owner = owner;
 		this.type = type;

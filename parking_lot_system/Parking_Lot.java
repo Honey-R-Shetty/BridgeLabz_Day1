@@ -37,8 +37,8 @@ public class Parking_Lot {
 		for (int i = 0; i < slots; i++) {
 			if (slot[i] != null) {
 				Vehicle v = slot[i];
-				System.out.println("Slot -->" + (i + 1) + "Type:  " + v.getType() + " Vehicle type: " + v.getNumber()
-						+ " Owner: " + v.getOwner());
+				System.out.println("Slot -->" + (i + 1) + " ,Type:  " + v.getType() + " ,Vehicle type: " + v.getNumber()
+						+ " ,Owner: " + v.getOwner());
 			}
 		}
 	}
